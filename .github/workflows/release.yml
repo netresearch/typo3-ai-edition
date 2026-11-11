@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-FileCopyrightText: Netresearch DTT GmbH
+
+name: Release
+
+# Signed-tag push -> signed source archive with SBOMs and SLSA provenance,
+# GitHub release, then a wait until Packagist lists the version. Packagist
+# itself updates through its GitHub hook; nothing here uploads to it.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions: {}
+
+jobs:
+  release:
+    uses: netresearch/.github/.github/workflows/release-source-archive.yml@main
+    permissions:
+      contents: write        # create the release
+      id-token: write        # Sigstore OIDC identity
+      attestations: write    # file the attestations with GitHub
+
+  # The release is created with GITHUB_TOKEN, so no `release` event starts
+  # anything afterwards; checks on the published release run as jobs here.
+  verify:
+    needs: release
+    uses: netresearch/.github/.github/workflows/verify-release.yml@main
+    permissions:
+      contents: read
+      attestations: read
+      id-token: write
+    with:
+      tag: ${{ github.ref_name }}
+      identity-regexp: '^https://github\.com/netresearch/\.github/\.github/workflows/release-source-archive\.yml@'
+      signer-workflow: netresearch/.github/.github/workflows/release-source-archive.yml
+
+  packagist:
+    needs: release
+    uses: netresearch/typo3-ci-workflows/.github/workflows/publish-to-packagist.yml@main
+    permissions:
+      contents: read
+    with:
+      package-name: netresearch/typo3-ai-edition
+      version: ${{ github.ref_name }}

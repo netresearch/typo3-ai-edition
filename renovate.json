@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>netresearch/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "A new member minor is proposed as a pull request so Edition CI tests it, and lands with the next edition release, never by auto-merge (docs/decisions/0001-typo3-ai-edition.md)",
+      "matchManagers": ["composer"],
+      "matchPackageNames": ["netresearch/*"],
+      "rangeStrategy": "replace",
+      "automerge": false,
+      "addLabels": ["deps-no-automerge"]
+    },
+    {
+      "description": "The supported TYPO3 LTS changes only by decision, with a major edition release",
+      "matchManagers": ["composer"],
+      "matchPackageNames": ["typo3/*"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
+}

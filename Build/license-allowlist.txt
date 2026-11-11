@@ -1,0 +1,22 @@
+# SPDX identifiers a package installed by the edition may carry.
+# A package passes when at least one of its licenses is listed here.
+# Adding an identifier is a curation decision: record it in docs/decisions/.
+MIT
+BSD-2-Clause
+BSD-3-Clause
+ISC
+Apache-2.0
+LGPL-2.1-only
+LGPL-2.1-or-later
+LGPL-3.0-only
+LGPL-3.0-or-later
+GPL-2.0-only
+GPL-2.0-or-later
+GPL-3.0-only
+GPL-3.0-or-later
+# Deprecated SPDX identifiers some packages still declare; same licenses as
+# their -only forms above.
+LGPL-2.1
+LGPL-3.0
+GPL-2.0
+GPL-3.0

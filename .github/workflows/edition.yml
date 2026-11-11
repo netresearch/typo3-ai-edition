@@ -1,0 +1,144 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-FileCopyrightText: Netresearch DTT GmbH
+
+name: Edition
+
+# Installs the edition into a fresh TYPO3 project for every supported PHP
+# version and runs Build/Scripts/smoke-test.sh: member lists, license
+# allowlist, TYPO3 setup and extension:setup, nr-llm configuration records,
+# and every backend module of every member. No step calls an LLM.
+#
+# The weekly run is the compatibility test between releases: it resolves the
+# newest patch release of every member inside the edition's ranges ("highest")
+# and the floors ("lowest"), so a member patch that breaks the combination
+# turns this workflow red before a user installs it.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: edition-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  smoke:
+    name: Smoke (PHP ${{ matrix.php }}, ${{ matrix.deps }}${{ matrix.suggested == '1' && ', with suggested' || '' }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { php: '8.3', deps: highest, suggested: '0' }
+          - { php: '8.4', deps: highest, suggested: '0' }
+          - { php: '8.5', deps: highest, suggested: '0' }
+          - { php: '8.5', deps: highest, suggested: '1' }
+          - { php: '8.3', deps: lowest, suggested: '1' }
+    services:
+      db:
+        # The org's copy of the Docker official image (same as
+        # typo3-ci-workflows e2e.yml), without Docker Hub's pull limits.
+        image: ghcr.io/netresearch/ci-mirror/mariadb:11.4
+        env:
+          MARIADB_ROOT_PASSWORD: root
+          MARIADB_DATABASE: typo3
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "healthcheck.sh --connect --innodb_initialized"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mysqli, pdo_mysql, intl, gd, zip, sodium, curl
+          coverage: none
+          tools: composer:v2
+
+      - name: Smoke test
+        env:
+          DEPS: ${{ matrix.deps }}
+          WITH_SUGGESTED: ${{ matrix.suggested }}
+          DB_HOST: 127.0.0.1
+          DB_PORT: '3306'
+          REPORT_DIR: ${{ runner.temp }}/report
+        run: bash Build/Scripts/smoke-test.sh "$RUNNER_TEMP/project"
+
+      - name: Summary
+        if: always()
+        env:
+          REPORT_DIR: ${{ runner.temp }}/report
+          CELL: PHP ${{ matrix.php }}, ${{ matrix.deps }}, suggested=${{ matrix.suggested }}
+        run: |
+          [ -f "$REPORT_DIR/versions.json" ] || exit 0
+          {
+            echo "### Installed versions ($CELL)"
+            echo
+            echo "| Package | Version |"
+            echo "| --- | --- |"
+            jq -r '.[] | "| \(.name) | \(.version) |"' "$REPORT_DIR/versions.json"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: report-php${{ matrix.php }}-${{ matrix.deps }}-s${{ matrix.suggested }}
+          path: ${{ runner.temp }}/report
+          retention-days: 30
+
+  licenses:
+    # The org-wide deny check (SSPL, BSL, BUSL) on the edition's own resolve.
+    # The allowlist in Build/license-allowlist.txt is stricter and runs in
+    # every smoke cell.
+    uses: netresearch/typo3-ci-workflows/.github/workflows/license-check.yml@main
+    permissions:
+      contents: read
+    with:
+      php-version: '8.5'
+
+  gate:
+    name: Edition CI
+    needs: [smoke, licenses]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        with:
+          egress-policy: audit
+
+      - name: Fail unless every job succeeded or was skipped
+        shell: bash
+        env:
+          RESULTS: ${{ toJSON(needs) }}
+        run: |
+          bad=$(jq -r 'to_entries[] | select(.value.result != "success" and .value.result != "skipped") | "\(.key)=\(.value.result)"' <<<"$RESULTS")
+          if [ -n "$bad" ]; then
+            echo "::error::Edition CI failed: $(tr "\n" " " <<<"$bad")"
+            exit 1
+          fi
+          jq -r 'to_entries[] | "  \(.key): \(.value.result)"' <<<"$RESULTS"

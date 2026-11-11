@@ -6,7 +6,7 @@ name: Edition
 # Installs the edition into a fresh TYPO3 project for every supported PHP
 # version and runs Build/Scripts/smoke-test.sh: member lists, license
 # allowlist, TYPO3 setup and extension:setup, nr-llm configuration records,
-# and every backend module of every member. No step calls an LLM.
+# and every module-menu entry of every member. No step calls an LLM.
 #
 # The weekly run is the compatibility test between releases: it resolves the
 # newest patch release of every member inside the edition's ranges ("highest")

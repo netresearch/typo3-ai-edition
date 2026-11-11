@@ -57,7 +57,7 @@ In every cell the script:
 2. checks the license of every installed package against [`Build/license-allowlist.txt`](Build/license-allowlist.txt);
 3. runs `typo3 setup` and `typo3 extension:setup`, then checks every member is an active extension;
 4. creates nr-llm provider, model and configuration records with `nrllm:demo:seed --days=0` and checks they exist;
-5. logs in to the backend and opens every backend module of every member from the module menu, failing on an HTTP error, an exception page, or a page without the module's own marker.
+5. logs in to the backend and opens every entry the module menu lists for each member, failing on an HTTP error, an exception page, or a page without the module's own marker. These are the menu entry points (for 1.0.0: five for nr-llm, one each for the others); submodules reached from inside a module, such as nr-llm's provider or model lists, are not opened separately.
 
 No step calls a language model, so the run needs no API key and makes no paid request. The run does not test what a model answers.
 

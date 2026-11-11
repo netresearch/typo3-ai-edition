@@ -68,7 +68,7 @@ The intersection of the members' constraints:
 
 | Criterion | How it is checked |
 | --- | --- |
-| Functional tests per release | CI: `Build/Scripts/smoke-test.sh` in `.github/workflows/edition.yml` (install, `extension:setup`, nr-llm configuration records, every backend module of every member). No step calls a language model. |
+| Functional tests per release | CI: `Build/Scripts/smoke-test.sh` in `.github/workflows/edition.yml` (install, `extension:setup`, nr-llm configuration records, every module-menu entry of every member; submodules below those entries are not opened). No step calls a language model. |
 | License of members and their dependencies | CI: allowlist `Build/license-allowlist.txt` against `composer licenses`, plus the organisation's SSPL/BSL/BUSL deny check (`license-check.yml`) |
 | Accessibility (BFSG) | Manual, `docs/release-checklist.md` |
 | Data processing agreements (AVV) | Manual, `docs/release-checklist.md` |

@@ -221,7 +221,7 @@ for t in tx_nrllm_provider tx_nrllm_model tx_nrllm_configuration; do
 done
 
 # --------------------------------------------------------------------------
-step "Backend: log in and open every module of every member"
+step "Backend: log in and open every module-menu entry of every member"
 cat > "$WORK_DIR/router.php" <<'PHP'
 <?php
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

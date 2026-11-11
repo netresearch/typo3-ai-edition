@@ -78,10 +78,17 @@ if [ "$declared" != "$checked" ]; then
 fi
 declared=$(jq -r '.suggest | keys[]' "$EDITION_DIR/composer.json" | sort)
 checked=$(printf '%s\n' "${SUGGESTED[@]}" | sort)
-fenced=$(jq -r '.conflict | keys[]' "$EDITION_DIR/composer.json" | sort)
-if [ "$declared" != "$checked" ] || [ "$declared" != "$fenced" ]; then
-    fail "composer.json suggest, composer.json conflict and SUGGESTED in this script must list the same packages"
+if [ "$declared" != "$checked" ]; then
+    fail "composer.json suggest and SUGGESTED in this script must list the same packages"
 fi
+# Every suggested member needs a conflict entry "<floor || >=next-minor" that
+# fences it to its tested range. conflict may also hold entries for required
+# members (a broken patch release excluded); those are not checked here.
+for p in "${SUGGESTED[@]}"; do
+    jq -e --arg p "$p" '.conflict[$p] // "" | test("^<[0-9]+\\.[0-9]+\\.[0-9]+ \\|\\| >=[0-9]+\\.[0-9]+\\.0$")' \
+        "$EDITION_DIR/composer.json" > /dev/null \
+        || fail "$p: composer.json conflict needs \"<X.Y.Z || >=X.(Y+1).0\" for the tested range"
+done
 [ "$failures" -eq 0 ] || exit 1
 
 cd "$WORK_DIR"
@@ -134,9 +141,9 @@ if [ "$DEPS" = lowest ]; then
     # resolves as for a user: Composer's --prefer-lowest would also drag
     # third-party libraries to floors no real install gets, and those fail
     # for reasons unrelated to the edition.
-    mapfile -t floors < <(jq -r '
+    mapfile -t floors < <(jq -r '. as $c |
         (.require | to_entries[] | select(.key | startswith("netresearch/")) | "\(.key):\(.value | ltrimstr("~"))"),
-        (.conflict | to_entries[] | "\(.key):\(.value | capture("^<(?<v>[0-9.]+)").v)")' "$EDITION_DIR/composer.json")
+        (.suggest | keys[] as $k | "\($k):\($c.conflict[$k] | capture("^<(?<v>[0-9.]+)").v)")' "$EDITION_DIR/composer.json")
     pins=()
     for f in "${floors[@]}"; do
         if [ "$WITH_SUGGESTED" != 1 ] && grep -q -x -F -- "${f%%:*}" <<<"$(printf '%s\n' "${SUGGESTED[@]}")"; then continue; fi

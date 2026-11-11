@@ -6,7 +6,7 @@ Composer metapackage `netresearch/typo3-ai-edition`: constraints only, no PHP co
 
 | Path | Content |
 | --- | --- |
-| `composer.json` | The edition: `require` (members), `conflict` (tested range of suggested members), `suggest` |
+| `composer.json` | The edition: `require` (members), `conflict` (tested range of suggested members, excluded broken patch releases), `suggest` |
 | `Build/Scripts/smoke-test.sh` | Compatibility run: fresh TYPO3 project, install, setup, member checks |
 | `Build/license-allowlist.txt` | SPDX identifiers an installed package may carry |
 | `.github/workflows/edition.yml` | Runs the smoke test per PHP version and dependency set; `Edition CI` is the gate |

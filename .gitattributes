@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-FileCopyrightText: Netresearch DTT GmbH
+
+# Keep CI and agent files out of the release archive (git archive in the
+# release workflow).
+/.github/          export-ignore
+/.editorconfig     export-ignore
+/.gitattributes    export-ignore
+/renovate.json     export-ignore
+AGENTS.md          export-ignore
+CLAUDE.md          export-ignore

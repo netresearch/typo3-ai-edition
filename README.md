@@ -63,9 +63,11 @@ No step calls a language model, so the run needs no API key and makes no paid re
 
 The organisation's `license-check.yml` additionally refuses SSPL, BSL and BUSL.
 
-## What is checked by hand before each release
+## Manual review status
 
-The curation criteria that need judgement are a checklist in [`docs/release-checklist.md`](docs/release-checklist.md): accessibility of the backend and frontend output (BFSG), data processing agreements for the model providers a site uses (AVV), and the transparency and documentation duties of the EU AI Act. The checklist records what was reviewed; it does not certify compliance of a site built with the edition, which depends on its configuration and providers.
+The [release checklist](docs/release-checklist.md) lists the manual reviews for backend and frontend accessibility, provider data processing agreements and AI Act transparency. The [release notes](https://github.com/netresearch/typo3-ai-edition/releases) record which reviews were completed or skipped for each version.
+
+For [1.0.0](https://github.com/netresearch/typo3-ai-edition/releases/tag/v1.0.0), the compatibility run passed. The accessibility, provider agreement and AI Act items were all unreviewed. A site operator still needs to assess the chosen providers, site configuration and editorial workflow.
 
 The edition contains no accessibility overlay, by design: accessibility belongs in the source and the editorial process.
 

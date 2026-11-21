@@ -33,7 +33,7 @@
         "netresearch/nr-mcp-agent": "~0.36.0",
         "netresearch/nr-repurpose": "~0.14.0",
         "netresearch/nr-vault": "~1.5.0",
-        "netresearch/t3-cowriter": "~3.27.0"
+        "netresearch/t3-cowriter": "~3.28.0"
     },
     "conflict": {
         "netresearch/nr-browser-ai": "<0.8.0 || >=0.9.0",

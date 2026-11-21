@@ -48,7 +48,7 @@ jobs:
       db:
         # The org's copy of the Docker official image (same as
         # typo3-ci-workflows e2e.yml), without Docker Hub's pull limits.
-        image: ghcr.io/netresearch/ci-mirror/mariadb:11.4
+        image: ghcr.io/netresearch/ci-mirror/mariadb:11.8
         env:
           MARIADB_ROOT_PASSWORD: root
           MARIADB_DATABASE: typo3

@@ -13,6 +13,14 @@
       "addLabels": ["deps-no-automerge"]
     },
     {
+      "description": "All member updates go into one pull request. The members require each other's minor ranges (the feature extensions require one nr-llm minor, nr-llm requires an nr-vault floor), so a new minor of one member does not resolve next to the old ranges of the others: the single pull requests for nr-llm ~0.51.0 and nr-mcp-agent ~0.39.0 failed Edition CI on exactly that, and only the combined raise in the 1.1.0 release resolved. separateMajorMinor false keeps a member major in the same pull request instead of a second one that cannot resolve alone.",
+      "matchManagers": ["composer"],
+      "matchPackageNames": ["netresearch/*"],
+      "groupName": "TYPO3 AI Edition members",
+      "groupSlug": "edition-members",
+      "separateMajorMinor": false
+    },
+    {
       "description": "The supported TYPO3 LTS changes only by decision, with a major edition release",
       "matchManagers": ["composer"],
       "matchPackageNames": ["typo3/*"],

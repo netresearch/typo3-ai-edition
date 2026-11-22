@@ -57,7 +57,7 @@ In every cell the script:
 2. checks the license of every installed package against [`Build/license-allowlist.txt`](Build/license-allowlist.txt);
 3. runs `typo3 setup` and `typo3 extension:setup`, then checks every member is an active extension;
 4. creates nr-llm provider, model and configuration records with `nrllm:demo:seed --days=0` and checks they exist;
-5. logs in to the backend and opens every entry the module menu lists for each member, failing on an HTTP error, an exception page, or a page without the module's own marker. These are the menu entry points (for 1.0.0: five for nr-llm, one each for the others); submodules reached from inside a module, such as nr-llm's provider or model lists, are not opened separately.
+5. logs in to the backend and opens every entry the module menu lists for each member, failing on an HTTP error, an exception page, or a page without the module's own marker. These are the menu entry points (for 1.1.0: seven for nr-llm, two for nr-landingpage, one each for the others); submodules reached from inside a module, such as nr-llm's provider or model lists, are not opened separately.
 
 No step calls a language model, so the run needs no API key and makes no paid request. The run does not test what a model answers.
 
@@ -67,7 +67,7 @@ The organisation's `license-check.yml` additionally refuses SSPL, BSL and BUSL.
 
 The [release checklist](docs/release-checklist.md) lists the manual reviews for backend and frontend accessibility, provider data processing agreements and AI Act transparency. The [release notes](https://github.com/netresearch/typo3-ai-edition/releases) record which reviews were completed or skipped for each version.
 
-For [1.0.0](https://github.com/netresearch/typo3-ai-edition/releases/tag/v1.0.0), the compatibility run passed. The accessibility, provider agreement and AI Act items were all unreviewed. A site operator still needs to assess the chosen providers, site configuration and editorial workflow.
+For [1.0.0](https://github.com/netresearch/typo3-ai-edition/releases/tag/v1.0.0) and [1.1.0](https://github.com/netresearch/typo3-ai-edition/releases/tag/v1.1.0), the compatibility run passed. The accessibility, provider agreement and AI Act items were all unreviewed in both releases. A site operator still needs to assess the chosen providers, site configuration and editorial workflow.
 
 The edition contains no accessibility overlay, by design: accessibility belongs in the source and the editorial process.
 

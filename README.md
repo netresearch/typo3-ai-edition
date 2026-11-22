@@ -15,21 +15,21 @@ vendor/bin/typo3 extension:setup
 
 | Extension | Package | Range | Purpose |
 | --- | --- | --- | --- |
-| LLM Foundation | [`netresearch/nr-llm`](https://packagist.org/packages/netresearch/nr-llm) | `~0.43.23` | Provider configuration, encrypted API keys, chat, translation, vision and embedding services for every other extension |
-| Secrets Vault | [`netresearch/nr-vault`](https://packagist.org/packages/netresearch/nr-vault) | `~1.5.0` | Envelope-encrypted storage for API keys and credentials |
-| AI Cowriter | [`netresearch/t3-cowriter`](https://packagist.org/packages/netresearch/t3-cowriter) | `~3.27.0` | Writing assistant in CKEditor |
-| AI Chat | [`netresearch/nr-mcp-agent`](https://packagist.org/packages/netresearch/nr-mcp-agent) | `~0.36.0` | Chat assistant in the TYPO3 backend with tool calling |
-| Landing Page Generator | [`netresearch/nr-landingpage`](https://packagist.org/packages/netresearch/nr-landingpage) | `~0.3.26` | Backend wizard that drafts landing pages |
-| Content Repurpose | [`netresearch/nr-repurpose`](https://packagist.org/packages/netresearch/nr-repurpose) | `~0.14.0` | Turns a page or PDF into a podcast, diagram, story or text variants |
+| LLM Foundation | [`netresearch/nr-llm`](https://packagist.org/packages/netresearch/nr-llm) | `~0.52.1` | Provider configuration, encrypted API keys, chat, translation, vision and embedding services for every other extension |
+| Secrets Vault | [`netresearch/nr-vault`](https://packagist.org/packages/netresearch/nr-vault) | `~1.10.0` | Envelope-encrypted storage for API keys and credentials |
+| AI Cowriter | [`netresearch/t3-cowriter`](https://packagist.org/packages/netresearch/t3-cowriter) | `~3.28.9` | Writing assistant in CKEditor |
+| AI Chat | [`netresearch/nr-mcp-agent`](https://packagist.org/packages/netresearch/nr-mcp-agent) | `~0.39.4` | Chat assistant in the TYPO3 backend with tool calling |
+| Landing Page Generator | [`netresearch/nr-landingpage`](https://packagist.org/packages/netresearch/nr-landingpage) | `~0.8.3` | Backend wizard that drafts landing pages |
+| Content Repurpose | [`netresearch/nr-repurpose`](https://packagist.org/packages/netresearch/nr-repurpose) | `~0.15.9` | Turns a page or PDF into a podcast, diagram, story or text variants |
 
 Optional, tested in the same run and fenced to the tested range through `conflict`:
 
 | Extension | Package | Range |
 | --- | --- | --- |
-| LLM Compatibility Layer | [`netresearch/nr-llm-compat`](https://packagist.org/packages/netresearch/nr-llm-compat) | `~0.5.0` |
-| Browser AI | [`netresearch/nr-browser-ai`](https://packagist.org/packages/netresearch/nr-browser-ai) | `~0.8.0` |
+| LLM Compatibility Layer | [`netresearch/nr-llm-compat`](https://packagist.org/packages/netresearch/nr-llm-compat) | `~0.5.9` |
+| Browser AI | [`netresearch/nr-browser-ai`](https://packagist.org/packages/netresearch/nr-browser-ai) | `~0.9.0` |
 
-`~0.43.23` means 0.43.23 or a later 0.43.x patch release; the edition never pulls in a new minor version of a member. A new minor arrives with a new edition release after the compatibility run has passed for it.
+`~0.52.1` means 0.52.1 or a later 0.52.x patch release; the edition never pulls in a new minor version of a member. A new minor arrives with a new edition release after the compatibility run has passed for it.
 
 ## Requirements
 

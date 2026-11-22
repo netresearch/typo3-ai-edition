@@ -281,6 +281,7 @@ grep -q '^web_layout ' "$REPORT_DIR/modules.txt" || { fail "menu parser found no
 # page without ModuleTemplate gets an explicit marker here.
 declare -A MODULE_MARKER=(
     [nr_landingpage]='<h1 class="mb-2">Landing Pages'
+    [nr_landingpage_workspace]='id="nr-landingpage-workspace"'
 )
 
 for p in "${!MODULE_PREFIX[@]}"; do

@@ -12,6 +12,8 @@ Composer metapackage `netresearch/typo3-ai-edition`: constraints only, no PHP co
 | `.github/workflows/edition.yml` | Runs the smoke test per PHP version and dependency set; `Edition CI` is the gate |
 | `.github/workflows/release.yml` | Tag push: signed source archive, GitHub release, Packagist check |
 | `docs/decisions/` | Decision records (OKF frontmatter) |
+| `docs/ontology/` | Ontology of the edition (OKF 0.3): concepts and typed relations; `python3 Build/Scripts/check-ontology.py docs/ontology` checks it, `--impact concepts/<name>` lists what a change can affect |
+| `Build/Scripts/check-ontology.py` | Checks the ontology against the files it cites |
 | `docs/release-checklist.md` | Steps and manual curation checks per release |
 
 ## Commands

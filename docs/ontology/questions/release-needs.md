@@ -6,7 +6,7 @@ title: "What an edition release needs"
 description: "Which conditions must hold before an edition release is tagged?"
 x-nr-query: --needs concepts/edition-release
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Question
@@ -37,17 +37,45 @@ concepts/curation-criterion
 concepts/supported-platform
   via concepts/edition-release derivedFrom concepts/edition
   via concepts/edition uses concepts/supported-platform
+concepts/members/nr-browser-ai
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-browser-ai partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-landingpage
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-landingpage partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-llm-compat
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-llm-compat partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-llm
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-llm partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-mcp-agent
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-mcp-agent partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-repurpose
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-repurpose partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-vault
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-vault partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
+concepts/members/t3-cowriter
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/t3-cowriter partOf concepts/edition
+  test Build/Scripts/smoke-test.sh
 concepts/license-allowlist
   via concepts/edition-release constrainedBy concepts/compatibility-run
   via concepts/compatibility-run constrainedBy concepts/license-allowlist
-concepts/members/nr-llm
-  via concepts/edition-release constrainedBy concepts/compatibility-run
-  via concepts/compatibility-run uses concepts/members/nr-llm
-  test Build/Scripts/smoke-test.sh
 concepts/version-range
-  via concepts/edition-release constrainedBy concepts/compatibility-run
-  via concepts/compatibility-run uses concepts/members/nr-llm
-  via concepts/members/nr-llm constrainedBy concepts/version-range
+  via concepts/edition-release derivedFrom concepts/edition
+  via concepts/members/nr-browser-ai partOf concepts/edition
+  via concepts/members/nr-browser-ai constrainedBy concepts/version-range
 Scope: only the relations this bundle models; coverage.md names what it leaves out.
 ```
 

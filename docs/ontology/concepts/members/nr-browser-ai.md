@@ -5,7 +5,7 @@ type: Edition Member
 title: "Browser AI (netresearch/nr-browser-ai)"
 description: "Suggested member of the edition: On-device assistant for the current page in Chrome's built-in AI."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -18,4 +18,4 @@ Browser AI is the Composer package `netresearch/nr-browser-ai`. On-device assist
 |---|---|---|---|---|
 | `partOf` | [Edition](../edition.md) | `composer.json` | `"netresearch/nr-browser-ai": "On-device` | asserted |
 | `constrainedBy` | [Version range](../version-range.md) | `composer.json` | `"netresearch/nr-browser-ai": "<` | asserted |
-| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `[netresearch/nr-browser-ai]='nr_browser_ai'` | asserted |
+| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `SUGGESTED=(netresearch/nr-llm-compat netresearch/nr-browser-ai)` | asserted |

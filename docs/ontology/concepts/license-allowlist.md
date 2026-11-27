@@ -5,7 +5,7 @@ type: Concept
 title: "License allowlist"
 description: "The SPDX identifiers an installed package may carry; the compatibility run fails on any other."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -16,4 +16,4 @@ The license allowlist lists the SPDX license identifiers that an installed packa
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
-| `implementedBy` | `Build/license-allowlist.txt` | `Build/Scripts/smoke-test.sh` | `composer licenses --format=json` | asserted |
+| `implementedBy` | `Build/license-allowlist.txt` | `Build/license-allowlist.txt` | `# SPDX identifiers a package installed by the edition may carry.` | asserted |

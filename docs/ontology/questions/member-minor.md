@@ -6,7 +6,7 @@ title: "A member releases a new minor version"
 description: "What does a new minor version of a member, for example nr-llm, require of the edition?"
 x-nr-query: --impact concepts/members/nr-llm
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Question

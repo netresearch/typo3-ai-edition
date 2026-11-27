@@ -5,7 +5,7 @@ type: Concept
 title: "Compatibility run"
 description: "The CI run that installs the edition into a new TYPO3 project per PHP version and member set and checks every member."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -23,4 +23,4 @@ The compatibility run installs the edition into a new TYPO3 project with MariaDB
 | `uses` | [Edition](edition.md) | `Build/Scripts/smoke-test.sh` | `# Installs the edition into a fresh TYPO3 project and checks every member.` | asserted |
 | `constrainedBy` | [License allowlist](license-allowlist.md) | `Build/Scripts/smoke-test.sh` | `step "License check (allowlist, Build/license-allowlist.txt)"` | asserted |
 | `uses` | [LLM Foundation (netresearch/nr-llm)](members/nr-llm.md) | `Build/Scripts/smoke-test.sh` | `vendor/bin/typo3 nrllm:demo:seed --days=0 --no-interaction` | asserted |
-| `implementedBy` | `Build/Scripts/smoke-test.sh` | `.github/workflows/edition.yml` | `cron: '23 4 * * 1'` | asserted |
+| `implementedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `step "Member lists of composer.json and this script agree"` | asserted |

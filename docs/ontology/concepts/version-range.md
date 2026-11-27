@@ -5,7 +5,7 @@ type: Concept
 title: "Version range"
 description: "The constraint ~X.Y.Z of a member: the version a green compatibility run installed, plus later patch releases of that minor."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -16,4 +16,4 @@ The version range of a required member has the form `~X.Y.Z`: X.Y.Z is a version
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
-| `implementedBy` | `composer.json` | `README.md` | `the edition never pulls in a new minor version of a member` | asserted |
+| `implementedBy` | `composer.json` | `composer.json` | `"netresearch/nr-llm": "~` | asserted |

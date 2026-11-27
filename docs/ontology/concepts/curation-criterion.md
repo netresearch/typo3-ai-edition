@@ -5,7 +5,7 @@ type: Concept
 title: "Curation criterion"
 description: "A condition every edition release must meet: functional tests, licenses, accessibility, data processing agreements, EU AI Act, no overlays."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition

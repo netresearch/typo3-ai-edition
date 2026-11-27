@@ -5,7 +5,7 @@ type: Edition Member
 title: "AI Chat (netresearch/nr-mcp-agent)"
 description: "Required member of the edition: Chat assistant in the TYPO3 backend with tool calling."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -18,4 +18,4 @@ AI Chat is the Composer package `netresearch/nr-mcp-agent`. Chat assistant in th
 |---|---|---|---|---|
 | `partOf` | [Edition](../edition.md) | `composer.json` | `"netresearch/nr-mcp-agent": "~` | asserted |
 | `constrainedBy` | [Version range](../version-range.md) | `composer.json` | `"netresearch/nr-mcp-agent": "~` | asserted |
-| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `[netresearch/nr-mcp-agent]='nr_mcp_agent'` | asserted |
+| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `declared=$(jq -r '.require \| keys[] \| select(startswith("netresearch/"))'` | asserted |

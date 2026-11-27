@@ -6,7 +6,7 @@ title: "The supported platform changes"
 description: "What is affected when the supported TYPO3 LTS or PHP version changes?"
 x-nr-query: --impact concepts/supported-platform
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Question

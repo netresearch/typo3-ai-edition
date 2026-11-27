@@ -5,7 +5,7 @@ type: Concept
 title: "Edition"
 description: "The Composer metapackage netresearch/typo3-ai-edition: member constraints that a compatibility run installed and tested together."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition

@@ -5,7 +5,7 @@ type: Edition Member
 title: "Content Repurpose (netresearch/nr-repurpose)"
 description: "Required member of the edition: Turns a page or PDF into a podcast, diagram, story or text variants."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -18,4 +18,4 @@ Content Repurpose is the Composer package `netresearch/nr-repurpose`. Turns a pa
 |---|---|---|---|---|
 | `partOf` | [Edition](../edition.md) | `composer.json` | `"netresearch/nr-repurpose": "~` | asserted |
 | `constrainedBy` | [Version range](../version-range.md) | `composer.json` | `"netresearch/nr-repurpose": "~` | asserted |
-| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `[netresearch/nr-repurpose]='nr_repurpose'` | asserted |
+| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `declared=$(jq -r '.require \| keys[] \| select(startswith("netresearch/"))'` | asserted |

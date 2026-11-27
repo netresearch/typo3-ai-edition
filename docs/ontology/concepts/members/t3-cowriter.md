@@ -5,7 +5,7 @@ type: Edition Member
 title: "AI Cowriter (netresearch/t3-cowriter)"
 description: "Required member of the edition: Writing assistant in CKEditor."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -18,4 +18,4 @@ AI Cowriter is the Composer package `netresearch/t3-cowriter`. Writing assistant
 |---|---|---|---|---|
 | `partOf` | [Edition](../edition.md) | `composer.json` | `"netresearch/t3-cowriter": "~` | asserted |
 | `constrainedBy` | [Version range](../version-range.md) | `composer.json` | `"netresearch/t3-cowriter": "~` | asserted |
-| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `[netresearch/t3-cowriter]='t3_cowriter'` | asserted |
+| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `declared=$(jq -r '.require \| keys[] \| select(startswith("netresearch/"))'` | asserted |

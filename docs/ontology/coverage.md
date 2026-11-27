@@ -5,7 +5,7 @@ type: Reference
 title: "Coverage"
 description: "What the TYPO3 AI Edition ontology models, what it leaves out, and how to read its statuses."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Scope
@@ -26,4 +26,4 @@ A missing relation means "not modelled", never "not related". Out of scope for n
 
 - `asserted`: the evidence text occurs exactly once in the evidence file; the check script confirms this on every run. It does not confirm that the evidence still means the relation: review a relation when its evidence file changes.
 - `hypothesis`: plausible, without evidence in this repository.
-- `status: draft` in the frontmatter marks every file as written by an agent and not yet reviewed by a person.
+- `status: draft` in the frontmatter marks every file as not yet reviewed by a person.

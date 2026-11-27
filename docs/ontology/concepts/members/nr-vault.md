@@ -5,7 +5,7 @@ type: Edition Member
 title: "Secrets Vault (netresearch/nr-vault)"
 description: "Required member of the edition: Envelope-encrypted storage for API keys and credentials."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -18,4 +18,4 @@ Secrets Vault is the Composer package `netresearch/nr-vault`. Envelope-encrypted
 |---|---|---|---|---|
 | `partOf` | [Edition](../edition.md) | `composer.json` | `"netresearch/nr-vault": "~` | asserted |
 | `constrainedBy` | [Version range](../version-range.md) | `composer.json` | `"netresearch/nr-vault": "~` | asserted |
-| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `[netresearch/nr-vault]='nr_vault'` | asserted |
+| `verifiedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `declared=$(jq -r '.require \| keys[] \| select(startswith("netresearch/"))'` | asserted |

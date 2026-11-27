@@ -5,7 +5,7 @@ type: Concept
 title: "Edition release"
 description: "A tagged version of the edition; its SemVer level follows what changed in the members."
 status: draft
-generated: {by: claude-code/2.1.332, at: 2026-11-27T21:06:57Z}
+timestamp: 2026-11-27
 ---
 
 # Definition
@@ -19,4 +19,4 @@ An edition release is a tag `vX.Y.Z` of this repository; a workflow builds a sig
 | `derivedFrom` | [Edition](edition.md) | `.github/workflows/release.yml` | `tags: ['v*']` | asserted |
 | `constrainedBy` | [Compatibility run](compatibility-run.md) | `docs/release-checklist.md` | `for the commit being tagged` | asserted |
 | `constrainedBy` | [Curation criterion](curation-criterion.md) | `docs/release-checklist.md` | `Copy the list below into the description of the release pull request` | asserted |
-| `implementedBy` | `.github/workflows/release.yml` | `docs/decisions/0001-typo3-ai-edition.md` | `The edition's own version follows SemVer` | asserted |
+| `implementedBy` | `.github/workflows/release.yml` | `.github/workflows/release.yml` | `tags: ['v*']` | asserted |

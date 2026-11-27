@@ -39,4 +39,4 @@ Scope: only the relations this bundle models; coverage.md names what it leaves o
 
 # Limits
 
-The edition does not install the new minor: the version range admits patch releases only. A pull request raises the range in `composer.json` and in the README, the compatibility run must pass on it, and an edition release (a minor release of the edition) ships it. Sites that require the member directly, without the edition, get the new minor as their own constraints allow.
+The edition does not install the new minor: the version range admits patch releases only. A pull request raises the range in `composer.json` and in the README, the compatibility run must pass on it, and an edition release (a minor release of the edition) ships it after the manual curation review of `docs/release-checklist.md` (accessibility, data processing agreements, EU AI Act) for every member whose version changed; `--needs concepts/edition-release` lists those conditions. Sites that require the member directly, without the edition, get the new minor as their own constraints allow.

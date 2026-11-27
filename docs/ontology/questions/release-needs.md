@@ -37,6 +37,7 @@ concepts/curation-criterion
 concepts/supported-platform
   via concepts/edition-release derivedFrom concepts/edition
   via concepts/edition uses concepts/supported-platform
+  test .github/workflows/edition.yml
 concepts/members/nr-browser-ai
   via concepts/edition-release derivedFrom concepts/edition
   via concepts/members/nr-browser-ai partOf concepts/edition

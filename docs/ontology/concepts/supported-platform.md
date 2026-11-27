@@ -16,4 +16,5 @@ The supported platform is the intersection of the constraints of all members: TY
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
+| `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `- { php: '8.5', deps: highest, suggested: '1' }` | asserted |
 | `implementedBy` | `composer.json` | `composer.json` | `"php": "^8.3"` | asserted |

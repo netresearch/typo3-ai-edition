@@ -25,6 +25,7 @@ python3 Build/Scripts/check-ontology.py docs/ontology --impact concepts/supporte
 
 ```text
 concepts/supported-platform
+  test .github/workflows/edition.yml
 concepts/edition
   via concepts/edition uses concepts/supported-platform
   test .github/workflows/edition.yml

@@ -23,4 +23,5 @@ The compatibility run installs the edition into a new TYPO3 project with MariaDB
 | `uses` | [Edition](edition.md) | `Build/Scripts/smoke-test.sh` | `# Installs the edition into a fresh TYPO3 project and checks every member.` | asserted |
 | `constrainedBy` | [License allowlist](license-allowlist.md) | `Build/Scripts/smoke-test.sh` | `step "License check (allowlist, Build/license-allowlist.txt)"` | asserted |
 | `uses` | [LLM Foundation (netresearch/nr-llm)](members/nr-llm.md) | `Build/Scripts/smoke-test.sh` | `vendor/bin/typo3 nrllm:demo:seed --days=0 --no-interaction` | asserted |
+| `implementedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `- { php: '8.3', deps: lowest, suggested: '1' }` | asserted |
 | `implementedBy` | `Build/Scripts/smoke-test.sh` | `Build/Scripts/smoke-test.sh` | `step "Member lists of composer.json and this script agree"` | asserted |

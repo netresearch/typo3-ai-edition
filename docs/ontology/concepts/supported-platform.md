@@ -23,7 +23,7 @@ flowchart LR
   n2[/"composer.json"/]
   n3[/".github/workflows/edition.yml"/]
   n4["Edition"]
-  c -->|"derivedFrom"| n1
+  c -.->|"derivedFrom (hypothesis)"| n1
   c -->|"implementedBy"| n2
   c -->|"verifiedBy"| n3
   n4 -->|"uses"| c
@@ -35,10 +35,11 @@ flowchart LR
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
-| `derivedFrom` | [Content Repurpose (netresearch/nr-repurpose)](members/nr-repurpose.md) | `docs/decisions/0001-typo3-ai-edition.md` | `TYPO3: nr-repurpose requires` | asserted |
+| `derivedFrom` | [Content Repurpose (netresearch/nr-repurpose)](members/nr-repurpose.md) |  |  | hypothesis |
 | `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `- { php: '8.5', deps: highest, suggested: '1' }` | asserted |
 | `implementedBy` | `composer.json` | `composer.json` | `"php": "^8.3"` | asserted |
 
 # Notes
 
 - Only nr-repurpose is modelled as a source of the platform, because ADR 0001 names it as the member that sets the TYPO3 and PHP floor. A new minor of another member can narrow the platform too; its constraints are in that member's own `composer.json`.
+- `derivedFrom` nr-repurpose is a hypothesis: the constraints it is derived from (`^14.3`, `^8.3`) live in the `composer.json` of nr-repurpose's own repository, and this repository records the derivation only in the prose of ADR 0001.

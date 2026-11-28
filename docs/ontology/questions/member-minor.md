@@ -33,7 +33,51 @@ concepts/edition
   test .github/workflows/edition.yml
 concepts/edition-release
   via concepts/compatibility-run uses concepts/members/nr-llm
-  via concepts/edition-release constrainedBy concepts/compatibility-run
+  via concepts/edition-release constrainedBy concepts/compatibility-run (hypothesis)
+concepts/version-range
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+concepts/members/nr-browser-ai
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-browser-ai constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-landingpage
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-landingpage constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-llm-compat
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-llm-compat constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-mcp-agent
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-mcp-agent constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-repurpose
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-repurpose constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/members/nr-vault
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-vault constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/members/t3-cowriter
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/t3-cowriter constrainedBy concepts/version-range
+  test Build/Scripts/smoke-test.sh
+concepts/supported-platform
+  via concepts/compatibility-run uses concepts/members/nr-llm
+  via concepts/version-range derivedFrom concepts/compatibility-run (hypothesis)
+  via concepts/members/nr-repurpose constrainedBy concepts/version-range
+  via concepts/supported-platform derivedFrom concepts/members/nr-repurpose (hypothesis)
+  test .github/workflows/edition.yml
 Scope: only the relations this bundle models; coverage.md names what it leaves out.
 A test line names a test file that covers the concept; it does not show that the test ran.
 ```

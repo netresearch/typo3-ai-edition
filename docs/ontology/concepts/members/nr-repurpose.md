@@ -26,7 +26,7 @@ flowchart LR
   c -->|"constrainedBy"| n1
   c -->|"partOf"| n2
   c -->|"verifiedBy"| n3
-  n4 -->|"derivedFrom"| c
+  n4 -.->|"derivedFrom (hypothesis)"| c
   classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
   class c focus
 ```

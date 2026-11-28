@@ -10,7 +10,7 @@ timestamp: 2026-11-27
 
 # Scope
 
-The bundle models the edition as a product: its members, their version ranges, the supported platform, the compatibility run, the license allowlist, the curation criteria and the edition release. The concepts inside each member (for example the providers and configurations of nr-llm) belong to the bundle of that member's repository; nr-llm gets one in `docs/ontology/` with netresearch/t3x-nr-llm#1480 (https://github.com/netresearch/t3x-nr-llm/pull/1480).
+The bundle models the edition as a product: its members, their version ranges, the supported platform, the compatibility run, the license allowlist, the curation criteria and the edition release. The concepts inside each member (for example the providers and configurations of nr-llm) belong to the bundle of that member's repository; nr-llm has one in `docs/ontology/` (https://github.com/netresearch/t3x-nr-llm/tree/main/docs/ontology), added with netresearch/t3x-nr-llm#1480 (https://github.com/netresearch/t3x-nr-llm/pull/1480).
 
 It describes the edition, not an installation. A site that requires the members individually, such as a demo instance, can run versions the edition has not tested.
 

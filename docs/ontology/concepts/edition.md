@@ -61,6 +61,10 @@ flowchart LR
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
 | `uses` | [Supported platform](supported-platform.md) | `composer.json` | `"typo3/cms-core": "^14.3"` | asserted |
-| `constrainedBy` | [Curation criterion](curation-criterion.md) | `docs/decisions/0001-typo3-ai-edition.md` | `### Curation criteria` | asserted |
+| `constrainedBy` | [Curation criterion](curation-criterion.md) | `.github/workflows/edition.yml` | `needs: [smoke, licenses, ontology]` | asserted |
 | `implementedBy` | `composer.json` | `composer.json` | `"type": "metapackage"` | asserted |
 | `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `name: Edition CI` | asserted |
+
+# Notes
+
+- The evidence of `constrainedBy` Curation criterion covers the two criteria CI checks: the gate `Edition CI` needs the smoke cells (functional tests, license allowlist) and the job `licenses`. The manual criteria constrain the edition release through the release checklist, which no code reads.

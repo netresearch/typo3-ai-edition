@@ -10,7 +10,7 @@ timestamp: 2026-11-27
 
 # Definition
 
-The edition is the Composer metapackage `netresearch/typo3-ai-edition`. It contains no code; it carries the constraints of its members, so that one `composer require` resolves to a combination that a compatibility run installed and tested together. ADR 0001 records the decision.
+The edition is the Composer metapackage `netresearch/typo3-ai-edition`. It contains no code; it carries the version ranges of its members. The compatibility run tests the lowest and the highest combination those ranges admit; a member patch published after the last run can be resolved by `composer require` before a run has tested it. ADR 0001 records the decision.
 
 # Not to be confused with
 

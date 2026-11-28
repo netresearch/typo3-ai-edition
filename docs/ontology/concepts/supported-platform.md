@@ -12,6 +12,25 @@ timestamp: 2026-11-27
 
 The supported platform is the intersection of the constraints of all members: TYPO3 14.3 LTS and PHP `^8.3`, tested on 8.3, 8.4 and 8.5. TYPO3 13.4 is out, because Content Repurpose requires TYPO3 14.3.
 
+# Neighbours
+
+Generated from the relation tables by `check-ontology.py --write-diagrams`. A solid arrow is an asserted relation, a dotted arrow a hypothesis; a slanted box is a file of the repository.
+
+```mermaid
+flowchart LR
+  c["Supported platform"]
+  n1["Content Repurpose (netresearch/nr-repurpose)"]
+  n2[/"composer.json"/]
+  n3[/".github/workflows/edition.yml"/]
+  n4["Edition"]
+  c -->|"derivedFrom"| n1
+  c -->|"implementedBy"| n2
+  c -->|"verifiedBy"| n3
+  n4 -->|"uses"| c
+  classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
+  class c focus
+```
+
 # Relations
 
 | Relation | Target | Evidence file | Evidence text | Status |

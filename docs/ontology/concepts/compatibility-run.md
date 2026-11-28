@@ -16,6 +16,29 @@ The compatibility run installs the edition into a new TYPO3 project with MariaDB
 
 - A test of what a model answers: no step calls a model, so a defect that shows only with a live provider is not caught.
 
+# Neighbours
+
+Generated from the relation tables by `check-ontology.py --write-diagrams`. A solid arrow is an asserted relation, a dotted arrow a hypothesis; a slanted box is a file of the repository.
+
+```mermaid
+flowchart LR
+  c["Compatibility run"]
+  n1["License allowlist"]
+  n2[/".github/workflows/edition.yml"/]
+  n3[/"Build/Scripts/smoke-test.sh"/]
+  n4["Edition"]
+  n5["LLM Foundation (netresearch/nr-llm)"]
+  n6["Edition release"]
+  c -->|"constrainedBy"| n1
+  c -->|"implementedBy"| n2
+  c -->|"implementedBy"| n3
+  c -->|"uses"| n4
+  c -->|"uses"| n5
+  n6 -->|"constrainedBy"| c
+  classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
+  class c focus
+```
+
 # Relations
 
 | Relation | Target | Evidence file | Evidence text | Status |

@@ -10,7 +10,7 @@ timestamp: 2026-11-27
 
 # Definition
 
-A curation criterion is a condition an edition release must meet. Two are checked by CI: the functional tests of the compatibility run and the licenses. Three are reviewed by hand per release with the release checklist: accessibility (BFSG), data processing agreements (AVV) and the transparency duties of the EU AI Act. One is a membership rule: an accessibility overlay is never a member. The checklist records reviews; it certifies no site.
+A curation criterion is a condition an edition release must meet. Two are checked by CI: the functional tests of the compatibility run and the licenses. The licenses are checked twice: by the license allowlist in every cell of the compatibility run, and by the organisation license check (job `licenses` in `.github/workflows/edition.yml`), which denies SSPL, BSL and BUSL. Three are reviewed by hand per release with the release checklist: accessibility (BFSG), data processing agreements (AVV) and the transparency duties of the EU AI Act. One is a membership rule: an accessibility overlay is never a member. The checklist records reviews; it certifies no site.
 
 # Neighbours
 
@@ -24,9 +24,9 @@ flowchart LR
   n3["Edition"]
   n4["Edition release"]
   c -->|"verifiedBy"| n1
-  c -->|"verifiedBy"| n2
+  c -.->|"verifiedBy (hypothesis)"| n2
   n3 -->|"constrainedBy"| c
-  n4 -->|"constrainedBy"| c
+  n4 -.->|"constrainedBy (hypothesis)"| c
   classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
   class c focus
 ```
@@ -35,5 +35,11 @@ flowchart LR
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
-| `verifiedBy` | `docs/release-checklist.md` | `docs/release-checklist.md` | `## Manual curation` | asserted |
-| `verifiedBy` | `.github/workflows/edition.yml` | `docs/decisions/0001-typo3-ai-edition.md` | `Functional tests per release` | asserted |
+| `verifiedBy` | `docs/release-checklist.md` |  |  | hypothesis |
+| `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `run: bash Build/Scripts/smoke-test.sh "$RUNNER_TEMP/project"` | asserted |
+| `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `uses: netresearch/typo3-ci-workflows/.github/workflows/license-check.yml@main` | asserted |
+
+# Notes
+
+- `verifiedBy` `docs/release-checklist.md` is a hypothesis: the checklist is prose that a person ticks in the release pull request, and no code or configuration of this repository reads it, so no literal would disappear if the review stopped.
+- The two rows for `.github/workflows/edition.yml` are the two CI-checked criteria: the smoke test step (functional tests and the license allowlist) and the job `licenses` (the organisation license check).

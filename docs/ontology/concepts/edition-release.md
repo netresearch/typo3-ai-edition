@@ -23,8 +23,8 @@ flowchart LR
   n2["Curation criterion"]
   n3["Edition"]
   n4[/".github/workflows/release.yml"/]
-  c -->|"constrainedBy"| n1
-  c -->|"constrainedBy"| n2
+  c -.->|"constrainedBy (hypothesis)"| n1
+  c -.->|"constrainedBy (hypothesis)"| n2
   c -->|"derivedFrom"| n3
   c -->|"implementedBy"| n4
   classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
@@ -36,6 +36,10 @@ flowchart LR
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
 | `derivedFrom` | [Edition](edition.md) | `.github/workflows/release.yml` | `tags: ['v*']` | asserted |
-| `constrainedBy` | [Compatibility run](compatibility-run.md) | `docs/release-checklist.md` | `for the commit being tagged` | asserted |
-| `constrainedBy` | [Curation criterion](curation-criterion.md) | `docs/release-checklist.md` | `Copy the list below into the description of the release pull request` | asserted |
+| `constrainedBy` | [Compatibility run](compatibility-run.md) |  |  | hypothesis |
+| `constrainedBy` | [Curation criterion](curation-criterion.md) |  |  | hypothesis |
 | `implementedBy` | `.github/workflows/release.yml` | `.github/workflows/release.yml` | `tags: ['v*']` | asserted |
+
+# Notes
+
+- Both `constrainedBy` rows are hypotheses. `.github/workflows/release.yml` runs on any pushed tag `v*` and checks neither a green compatibility run nor the curation criteria; `docs/release-checklist.md` asks a person to confirm both before tagging, and that is prose no code reads.

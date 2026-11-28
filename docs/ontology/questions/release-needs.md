@@ -29,10 +29,11 @@ concepts/edition
   via concepts/edition-release derivedFrom concepts/edition
   test .github/workflows/edition.yml
 concepts/compatibility-run
-  via concepts/edition-release constrainedBy concepts/compatibility-run
+  via concepts/edition-release constrainedBy concepts/compatibility-run (hypothesis)
 concepts/curation-criterion
-  via concepts/edition-release constrainedBy concepts/curation-criterion
-  test docs/release-checklist.md
+  via concepts/edition-release constrainedBy concepts/curation-criterion (hypothesis)
+  test docs/release-checklist.md (hypothesis)
+  test .github/workflows/edition.yml
   test .github/workflows/edition.yml
 concepts/supported-platform
   via concepts/edition-release derivedFrom concepts/edition
@@ -71,7 +72,7 @@ concepts/members/t3-cowriter
   via concepts/members/t3-cowriter partOf concepts/edition
   test Build/Scripts/smoke-test.sh
 concepts/license-allowlist
-  via concepts/edition-release constrainedBy concepts/compatibility-run
+  via concepts/edition-release constrainedBy concepts/compatibility-run (hypothesis)
   via concepts/compatibility-run constrainedBy concepts/license-allowlist
 concepts/version-range
   via concepts/edition-release derivedFrom concepts/edition

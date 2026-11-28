@@ -10,7 +10,7 @@ timestamp: 2026-11-27
 
 # Definition
 
-LLM Foundation is the Composer package `netresearch/nr-llm`. Provider configuration, encrypted API keys, chat, translation, vision and embedding services for the members that build on it: t3-cowriter, nr-mcp-agent, nr-landingpage, nr-repurpose and nr-llm-compat. It is a required member of the edition. Its version range in the edition admits patch releases of one minor version only.
+LLM Foundation is the Composer package `netresearch/nr-llm`. Provider configuration, encrypted API keys, chat, translation, vision and embedding services for the members that build on it: t3-cowriter, nr-mcp-agent, nr-landingpage, nr-repurpose and nr-llm-compat. It is a required member of the edition. Its version range in the edition admits patch releases of one minor version only. The concepts inside nr-llm (providers, models, configurations) are modelled in the ontology bundle of its own repository: https://github.com/netresearch/t3x-nr-llm/tree/main/docs/ontology
 
 # Neighbours
 

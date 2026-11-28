@@ -29,12 +29,14 @@ flowchart LR
   n4["Edition"]
   n5["LLM Foundation (netresearch/nr-llm)"]
   n6["Edition release"]
+  n7["Version range"]
   c -->|"constrainedBy"| n1
   c -->|"implementedBy"| n2
   c -->|"implementedBy"| n3
   c -->|"uses"| n4
   c -->|"uses"| n5
-  n6 -->|"constrainedBy"| c
+  n6 -.->|"constrainedBy (hypothesis)"| c
+  n7 -.->|"derivedFrom (hypothesis)"| c
   classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
   class c focus
 ```
@@ -43,7 +45,7 @@ flowchart LR
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
-| `uses` | [Edition](edition.md) | `Build/Scripts/smoke-test.sh` | `# Installs the edition into a fresh TYPO3 project and checks every member.` | asserted |
+| `uses` | [Edition](edition.md) | `Build/Scripts/smoke-test.sh` | `"netresearch/typo3-ai-edition": "${EDITION_VERSION}",` | asserted |
 | `constrainedBy` | [License allowlist](license-allowlist.md) | `Build/Scripts/smoke-test.sh` | `step "License check (allowlist, Build/license-allowlist.txt)"` | asserted |
 | `uses` | [LLM Foundation (netresearch/nr-llm)](members/nr-llm.md) | `Build/Scripts/smoke-test.sh` | `vendor/bin/typo3 nrllm:demo:seed --days=0 --no-interaction` | asserted |
 | `implementedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `- { php: '8.3', deps: lowest, suggested: '1' }` | asserted |

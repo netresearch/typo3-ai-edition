@@ -12,6 +12,10 @@ timestamp: 2026-11-27
 
 The license allowlist lists the SPDX license identifiers that an installed package may carry. The compatibility run compares every installed package against it. A new identifier on the list is explained in a decision record.
 
+# Not to be confused with
+
+- The organisation license check: the job `licenses` in `.github/workflows/edition.yml` calls the shared `license-check.yml` workflow, which denies a few licenses (SSPL, BSL, BUSL) on the edition's own resolve. The allowlist is stricter: it admits only the identifiers it lists, and it runs in every cell of the compatibility run. `Edition CI` requires both.
+
 # Neighbours
 
 Generated from the relation tables by `check-ontology.py --write-diagrams`. A solid arrow is an asserted relation, a dotted arrow a hypothesis; a slanted box is a file of the repository.
@@ -31,4 +35,4 @@ flowchart LR
 
 | Relation | Target | Evidence file | Evidence text | Status |
 |---|---|---|---|---|
-| `implementedBy` | `Build/license-allowlist.txt` | `Build/license-allowlist.txt` | `# SPDX identifiers a package installed by the edition may carry.` | asserted |
+| `implementedBy` | `Build/license-allowlist.txt` | `Build/Scripts/smoke-test.sh` | `"$EDITION_DIR/Build/license-allowlist.txt"` | asserted |

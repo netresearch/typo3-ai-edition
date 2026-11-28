@@ -37,9 +37,9 @@ flowchart LR
 |---|---|---|---|---|
 | `verifiedBy` | `docs/release-checklist.md` |  |  | hypothesis |
 | `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `run: bash Build/Scripts/smoke-test.sh "$RUNNER_TEMP/project"` | asserted |
-| `verifiedBy` | `.github/workflows/edition.yml` | `.github/workflows/edition.yml` | `uses: netresearch/typo3-ci-workflows/.github/workflows/license-check.yml@main` | asserted |
 
 # Notes
 
+- The `verifiedBy` row to `.github/workflows/edition.yml` cites the smoke run; the same workflow also runs the organisation license check (`uses: netresearch/typo3-ci-workflows/.github/workflows/license-check.yml@main`). One row per target keeps the stored answers free of duplicate test lines.
 - `verifiedBy` `docs/release-checklist.md` is a hypothesis: the checklist is prose that a person ticks in the release pull request, and no code or configuration of this repository reads it, so no literal would disappear if the review stopped.
 - The two rows for `.github/workflows/edition.yml` are the two CI-checked criteria: the smoke test step (functional tests and the license allowlist) and the job `licenses` (the organisation license check).

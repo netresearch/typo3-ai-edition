@@ -34,7 +34,6 @@ concepts/curation-criterion
   via concepts/edition-release constrainedBy concepts/curation-criterion (hypothesis)
   test docs/release-checklist.md (hypothesis)
   test .github/workflows/edition.yml
-  test .github/workflows/edition.yml
 concepts/supported-platform
   via concepts/edition-release derivedFrom concepts/edition
   via concepts/edition uses concepts/supported-platform

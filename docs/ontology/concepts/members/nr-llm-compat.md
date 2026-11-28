@@ -12,6 +12,23 @@ timestamp: 2026-11-27
 
 LLM Compatibility Layer is the Composer package `netresearch/nr-llm-compat`. Routes the LLM calls of third-party AI extensions through nr-llm. It is a suggested member of the edition: a site installs it only on request, and the edition fences it to the tested range through `conflict`. Its version range in the edition admits patch releases of one minor version only.
 
+# Neighbours
+
+Generated from the relation tables by `check-ontology.py --write-diagrams`. A solid arrow is an asserted relation, a dotted arrow a hypothesis; a slanted box is a file of the repository.
+
+```mermaid
+flowchart LR
+  c["LLM Compatibility Layer (netresearch/nr-llm-compat)"]
+  n1["Version range"]
+  n2["Edition"]
+  n3[/"Build/Scripts/smoke-test.sh"/]
+  c -->|"constrainedBy"| n1
+  c -->|"partOf"| n2
+  c -->|"verifiedBy"| n3
+  classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
+  class c focus
+```
+
 # Relations
 
 | Relation | Target | Evidence file | Evidence text | Status |

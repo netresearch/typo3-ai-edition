@@ -12,6 +12,25 @@ timestamp: 2026-11-27
 
 A curation criterion is a condition an edition release must meet. Two are checked by CI: the functional tests of the compatibility run and the licenses. Three are reviewed by hand per release with the release checklist: accessibility (BFSG), data processing agreements (AVV) and the transparency duties of the EU AI Act. One is a membership rule: an accessibility overlay is never a member. The checklist records reviews; it certifies no site.
 
+# Neighbours
+
+Generated from the relation tables by `check-ontology.py --write-diagrams`. A solid arrow is an asserted relation, a dotted arrow a hypothesis; a slanted box is a file of the repository.
+
+```mermaid
+flowchart LR
+  c["Curation criterion"]
+  n1[/".github/workflows/edition.yml"/]
+  n2[/"docs/release-checklist.md"/]
+  n3["Edition"]
+  n4["Edition release"]
+  c -->|"verifiedBy"| n1
+  c -->|"verifiedBy"| n2
+  n3 -->|"constrainedBy"| c
+  n4 -->|"constrainedBy"| c
+  classDef focus fill:#2F99A4,stroke:#15585E,color:#ffffff
+  class c focus
+```
+
 # Relations
 
 | Relation | Target | Evidence file | Evidence text | Status |

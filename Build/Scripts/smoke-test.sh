@@ -45,7 +45,8 @@ step() { echo; echo "=== $*"; }
 
 # Members and the backend module identifier prefix each one registers. A member
 # without a prefix registers no backend module; its check is the extension list.
-# Keep in step with composer.json "require" (Build/Scripts/check-members.sh).
+# Keep in step with composer.json "require": the step "Member lists of
+# composer.json and this script agree" below fails when they differ.
 declare -A MODULE_PREFIX=(
     [netresearch/nr-llm]='nrllm_'
     [netresearch/nr-vault]='admin_vault'

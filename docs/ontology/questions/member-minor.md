@@ -35,6 +35,7 @@ concepts/edition-release
   via concepts/compatibility-run uses concepts/members/nr-llm
   via concepts/edition-release constrainedBy concepts/compatibility-run
 Scope: only the relations this bundle models; coverage.md names what it leaves out.
+A test line names a test file that covers the concept; it does not show that the test ran.
 ```
 
 # Limits

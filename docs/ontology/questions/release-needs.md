@@ -78,6 +78,7 @@ concepts/version-range
   via concepts/members/nr-browser-ai partOf concepts/edition
   via concepts/members/nr-browser-ai constrainedBy concepts/version-range
 Scope: only the relations this bundle models; coverage.md names what it leaves out.
+A test line names a test file that covers the concept; it does not show that the test ran.
 ```
 
 # Limits

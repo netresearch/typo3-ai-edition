@@ -36,6 +36,7 @@ concepts/edition-release
   via concepts/edition uses concepts/supported-platform
   via concepts/edition-release derivedFrom concepts/edition
 Scope: only the relations this bundle models; coverage.md names what it leaves out.
+A test line names a test file that covers the concept; it does not show that the test ran.
 ```
 
 # Limits

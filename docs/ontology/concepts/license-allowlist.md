@@ -14,7 +14,7 @@ The license allowlist lists the SPDX license identifiers that an installed packa
 
 # Not to be confused with
 
-- The organisation license check: the job `licenses` in `.github/workflows/edition.yml` calls the shared `license-check.yml` workflow, which denies a few licenses (SSPL, BSL, BUSL) on the edition's own resolve. The allowlist is stricter: it admits only the identifiers it lists, and it runs in every cell of the compatibility run. `Edition CI` requires both.
+- The organisation license check: the job `licenses` in `.github/workflows/edition.yml` calls the shared `license-check.yml` workflow, which denies a few licenses (SSPL, BSL, BUSL) on the edition's own resolve. The allowlist is stricter: a package passes when at least one of its declared licenses is on the list, and fails when it declares no license or none that is listed; it runs in every cell of the compatibility run. `Edition CI` requires both.
 
 # Neighbours
 

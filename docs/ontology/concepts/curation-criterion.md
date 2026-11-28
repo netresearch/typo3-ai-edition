@@ -10,7 +10,7 @@ timestamp: 2026-11-27
 
 # Definition
 
-A curation criterion is a condition an edition release must meet. Two are checked by CI: the functional tests of the compatibility run and the licenses. The licenses are checked twice: by the license allowlist in every cell of the compatibility run, and by the organisation license check (job `licenses` in `.github/workflows/edition.yml`), which denies SSPL, BSL and BUSL. Three are reviewed by hand per release with the release checklist: accessibility (BFSG), data processing agreements (AVV) and the transparency duties of the EU AI Act. One is a membership rule: an accessibility overlay is never a member. The checklist records reviews; it certifies no site.
+A curation criterion is a condition an edition release must meet. Two are checked by CI: the functional tests of the compatibility run and the licenses. The licenses of the required members are checked twice: by the license allowlist in every cell of the compatibility run, and by the organisation license check (job `licenses` in `.github/workflows/edition.yml`), which denies SSPL, BSL and BUSL. The suggested members are checked only by the allowlist, and only in the cells that install them. Three are reviewed by hand per release with the release checklist: accessibility (BFSG), data processing agreements (AVV) and the transparency duties of the EU AI Act. One is a membership rule: an accessibility overlay is never a member. The checklist records reviews; it certifies no site.
 
 # Neighbours
 

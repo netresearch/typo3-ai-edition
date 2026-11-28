@@ -14,7 +14,7 @@ This repository holds the edition's constraints, the compatibility run and the c
 
 ## Adding or removing a member
 
-Membership is a curation decision. Write it down in `docs/decisions/` first, then change `composer.json` and the member lists in `Build/Scripts/smoke-test.sh` together: the script fails when the two disagree. A new member needs a check in the script, at least its backend module prefix.
+Membership is a curation decision. Write it down in `docs/decisions/` first, then change `composer.json` and the member lists in `Build/Scripts/smoke-test.sh` together: the script fails when the two disagree. A new member needs a check in the script, at least its backend module prefix, and a concept file in `docs/ontology/concepts/members/`: the `Ontology` job fails when the members of `composer.json` and those files differ.
 
 ## Running the compatibility run locally
 

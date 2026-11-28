@@ -3,7 +3,7 @@
 
 # Members
 
-* [LLM Foundation (netresearch/nr-llm)](nr-llm.md) - Required member of the edition: Provider configuration, encrypted API keys, chat, translation, vision and embedding services for every other member.
+* [LLM Foundation (netresearch/nr-llm)](nr-llm.md) - Required member of the edition: Provider configuration, encrypted API keys, chat, translation, vision and embedding services for the members that build on it: t3-cowriter, nr-mcp-agent, nr-landingpage, nr-repurpose and nr-llm-compat.
 * [Secrets Vault (netresearch/nr-vault)](nr-vault.md) - Required member of the edition: Envelope-encrypted storage for API keys and credentials.
 * [AI Cowriter (netresearch/t3-cowriter)](t3-cowriter.md) - Required member of the edition: Writing assistant in CKEditor.
 * [AI Chat (netresearch/nr-mcp-agent)](nr-mcp-agent.md) - Required member of the edition: Chat assistant in the TYPO3 backend with tool calling.

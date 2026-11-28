@@ -41,7 +41,7 @@ TYPO3 13.4 is not supported: Content Repurpose requires TYPO3 14.3. [ADR 0001](d
 
 ## What the compatibility run checks
 
-[`.github/workflows/edition.yml`](.github/workflows/edition.yml) runs [`Build/Scripts/smoke-test.sh`](Build/Scripts/smoke-test.sh) on every pull request, on `main`, and every Monday. Each cell installs the edition into a new TYPO3 project with MariaDB 11.4:
+[`.github/workflows/edition.yml`](.github/workflows/edition.yml) runs [`Build/Scripts/smoke-test.sh`](Build/Scripts/smoke-test.sh) on every pull request, on `main`, and every Monday. Each cell installs the edition into a new TYPO3 project with the MariaDB image that `edition.yml` names:
 
 | PHP | Member versions | Suggested members |
 | --- | --- | --- |
